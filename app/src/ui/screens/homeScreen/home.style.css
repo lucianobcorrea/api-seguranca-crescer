@@ -1,0 +1,110 @@
+.home-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+  gap: 10px;
+}
+
+.data-ajust {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 600px;
+  max-width: 600px;
+  margin: 15px;
+}
+
+.data-ajust img {
+  border-radius: 50%;
+  width:  160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.avatar-area {
+  text-align: center;
+}
+
+.text-config {
+  background: rgb(235, 235, 235);
+  padding: 10px;
+  border-radius: 5px;
+  word-break: break-all;
+  max-height: 160px;
+  overflow: auto;
+}
+
+.logged-user-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(77, 77, 77);
+}
+
+.logged-user-data img {
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.199);
+  clip-path: circle();
+}
+
+.logged-user-data-content {
+  background: lightblue;
+  width: 100%;
+  margin: 10px;
+  padding: 10px 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.199);
+  text-decoration: none;
+}
+
+.add-post {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 400px;
+  padding: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.055);
+}
+
+.radio-options {
+  display: flex;
+}
+
+.solicitations-container {
+  position: absolute;
+  right: 0;
+}
+
+.solicitations-size {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+
+.all-solicitations {
+  display: flex;
+  flex-direction: row;
+  min-width: 430px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.055);
+  margin-top: 20px;
+}
+
+.all-solicitations img {
+  width:  120px;
+  height: 120px;
+  object-fit: cover;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.199);
+  clip-path: circle();
+}

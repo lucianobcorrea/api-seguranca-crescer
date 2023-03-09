@@ -1,0 +1,23 @@
+.input-text {
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  border: none;
+  padding: 15px 32px;
+  font-size: 16px;
+  outline-color: rgb(236, 236, 236);
+  resize: none;
+  transition: all 0.2s ease;
+}
+
+.input-text:focus {
+  background-color: #fff;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
+textarea {
+  margin-bottom: 20px;
+}
+

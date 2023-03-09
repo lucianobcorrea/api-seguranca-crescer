@@ -1,0 +1,10 @@
+.link-button-style {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  padding-bottom: 26px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
+}
