@@ -11,6 +11,7 @@ export function useForgostPassForm() {
     try {
       if (emailInput.email === '') {
         toast.error('Email precisa ser preenchido');
+        console.log(emailInput.email);
       } else {
         await sendEmail(emailInput);
         setTimeout(() => {

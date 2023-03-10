@@ -5,22 +5,18 @@ import br.com.cwi.api.security.domain.Usuario;
 import br.com.cwi.api.security.repository.PasswordResetTokenRepository;
 import br.com.cwi.api.security.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.time.LocalDateTime;
 import java.util.UUID;
-import static java.util.Objects.isNull;
 import static org.springframework.http.HttpStatus.OK;
 
 @Service
@@ -46,7 +42,7 @@ public class CriarTokenSenhaService {
     @Transactional
     public ResponseEntity<Object> criar(String emailUsuario) throws MessagingException {
         Usuario usuario = usuarioRepository.findByEmail(emailUsuario);
-
+        System.out.println(emailUsuario);
         try{
             String token = UUID.randomUUID().toString();
 
@@ -68,13 +64,13 @@ public class CriarTokenSenhaService {
         }catch (Exception e) {
             return new ResponseEntity<>(OK);
         }
-        return null;
+        return new ResponseEntity<>(OK);
     }
 
     public void enviarEmail(String toEmail, String assunto, String body) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-        helper.setFrom("labsegurancacrescer@gmail.com");
+        helper.setFrom("testetestandolabcrescer@gmail.com");
         helper.setTo(toEmail);
         helper.setSubject(assunto);
         helper.setText(body, true);

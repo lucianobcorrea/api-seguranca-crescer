@@ -6,13 +6,9 @@ import br.com.cwi.api.security.controller.request.senhaRequest;
 import br.com.cwi.api.security.controller.response.UsuarioResponse;
 import br.com.cwi.api.security.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ReportAsSingleViolation;
 import javax.validation.Valid;
 
 import static org.springframework.http.HttpStatus.*;

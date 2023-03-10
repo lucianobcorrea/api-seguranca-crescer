@@ -1,6 +1,5 @@
 package br.com.cwi.api.security.service;
 
-import br.com.cwi.api.security.domain.Usuario;
 import br.com.cwi.api.security.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
