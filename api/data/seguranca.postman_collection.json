@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"senha\": \"123456\",\n    \"telefone\": \"(51)12345-6789\",\n    \"foto\": \"https://avatarfiles.alphacoders.com/295/thumb-295023.jpg\"\n}",
+					"raw": "{\n    \"nome\": \"lucian teste\",\n    \"email\": \"emailgmail.com\",\n    \"senha\": \"123456\",\n    \"telefone\": \"(51)12345-6289\",\n    \"foto\": \"https://avatarfiles.alphacoders.com/295/thumb-295023.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,13 +67,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "username",
-							"value": "teste@cwi.com.br",
+							"key": "password",
+							"value": "987654321",
 							"type": "string"
 						},
 						{
-							"key": "password",
-							"value": "123456",
+							"key": "username",
+							"value": "lucianobalestrincorrea13@gmail.com",
 							"type": "string"
 						}
 					]
@@ -117,6 +117,35 @@
 			"response": []
 		},
 		{
+			"name": "resetar senha",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/resetar-senha?email=seuemail@provedor.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"resetar-senha"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "seuemail@provedor.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "editar conta",
 			"request": {
 				"auth": {
@@ -144,6 +173,63 @@
 						"usuarios",
 						"me",
 						"editar-conta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar senha",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/alterar-senha/10/29e1669d-a800-4c70-9a9b-9995f6eaa217",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"alterar-senha",
+						"10",
+						"29e1669d-a800-4c70-9a9b-9995f6eaa217"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "salvar senha",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUsuario\": 10,\r\n    \"token\": \"29e1669d-a800-4c70-9a9b-9995f6eaa217\",\r\n    \"senha\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/salvar-senha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"salvar-senha"
 					]
 				}
 			},
