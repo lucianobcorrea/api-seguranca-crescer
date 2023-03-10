@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { useFormInputs } from '../../../hook/index';
+import { useForgostPassForm } from '../../../hook/useForgotPassForm/useForgotPassForm.hook';
 import { useRegisterFormInputs } from '../../../hook/useRegisterFormInputs/useRegisterFormInputs.hook';
 import '../../components/button/buttonColors.style.css';
 import {
@@ -16,11 +17,18 @@ import './userLoginScreen.style.css';
 export function UserLoginScreen() {
   const { formInputs, handleChange, handleSubmit } = useFormInputs();
   const [registerModal, setRegisterModal] = useState(false);
+  const [forgotPass, setForgotPass] = useState(false);
   const { registerInputs, handleRegisterChange, handleRegisterSubmit } =
     useRegisterFormInputs();
+  const { emailInput, handleEmailChange, handleSendEmailSubmit } =
+    useForgostPassForm();
 
   const toggleModal = () => {
     setRegisterModal(!registerModal);
+  };
+
+  const toggleModalForgotPass = () => {
+    setForgotPass(!forgotPass);
   };
 
   return (
@@ -50,6 +58,11 @@ export function UserLoginScreen() {
             link="#"
             linkButtonName="Criar nova conta"
             action={toggleModal}
+          />
+          <LinkButton
+            link="#"
+            linkButtonName="Esqueceu sua senha?"
+            action={toggleModalForgotPass}
           />
         </FormContainer>
       </form>
@@ -106,6 +119,27 @@ export function UserLoginScreen() {
             />
 
             <Button className="button-green-style">Cadastre-se</Button>
+          </Modal>
+        )}
+      </form>
+
+      <form onSubmit={handleSendEmailSubmit}>
+        {forgotPass && (
+          <Modal toggleModal={toggleModalForgotPass}>
+            <h1>Recuperação de senha</h1>
+            <p>Digite um email cadastrado.</p>
+
+            <TextInput
+              placeholder="Ex.: email@provedor.com"
+              labelText="Email"
+              inputName="email"
+              inputType="email"
+              forId="email"
+              inputValue={emailInput.email}
+              onChange={handleEmailChange}
+            />
+
+            <Button className="button-green-style">Enviar</Button>
           </Modal>
         )}
       </form>

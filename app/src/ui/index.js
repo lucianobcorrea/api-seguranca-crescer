@@ -9,5 +9,6 @@ export { PostInput } from './components/postInput/';
 export { PostModel } from './components/postModel/postModel.component';
 export { RadioButton } from './components/RadioButton/';
 export { TextInput } from './components/TextInput/index';
+export { ChangePassScreen } from './screens/changePassScreen/changePass.screen';
 export { HomeScreen } from './screens/homeScreen/home.screen';
 export { UserLoginScreen } from './screens/userLoginScreen/userLogin.screen';

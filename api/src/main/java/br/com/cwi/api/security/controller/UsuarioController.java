@@ -2,18 +2,20 @@ package br.com.cwi.api.security.controller;
 
 import br.com.cwi.api.security.controller.request.EditarContaRequest;
 import br.com.cwi.api.security.controller.request.UsuarioRequest;
+import br.com.cwi.api.security.controller.request.senhaRequest;
 import br.com.cwi.api.security.controller.response.UsuarioResponse;
-import br.com.cwi.api.security.service.BuscarUsuarioService;
-import br.com.cwi.api.security.service.EditarContaUsuarioService;
-import br.com.cwi.api.security.service.IncluirUsuarioService;
+import br.com.cwi.api.security.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ReportAsSingleViolation;
 import javax.validation.Valid;
 
-import static org.springframework.http.HttpStatus.NO_CONTENT;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -27,6 +29,15 @@ public class UsuarioController {
 
     @Autowired
     private EditarContaUsuarioService editarContaUsuarioService;
+
+    @Autowired
+    private CriarTokenSenhaService criarTokenSenhaService;
+
+    @Autowired
+    private AlterarSenhaService alterarSenhaService;
+
+    @Autowired
+    private SalvarSenhaService salvarSenhaService;
 
     @PostMapping
     @ResponseStatus(OK)
@@ -44,5 +55,23 @@ public class UsuarioController {
     @ResponseStatus(NO_CONTENT)
     public void editarConta(@Valid @RequestBody EditarContaRequest request) {
         editarContaUsuarioService.editar(request);
+    }
+
+    @PostMapping("/resetar-senha")
+    @ResponseStatus(NO_CONTENT)
+    public void resetarSenha(@RequestParam("email") String emailUsuario) throws MessagingException {
+        criarTokenSenhaService.criar(emailUsuario);
+    }
+
+    @GetMapping("/alterar-senha/{id}/{token}")
+    @ResponseStatus(NO_CONTENT)
+    public void alterarSenha(@PathVariable String token) {
+        alterarSenhaService.alterar(token);
+    }
+
+    @PutMapping("/salvar-senha")
+    @ResponseStatus(OK)
+    public void salvarSenha(@Valid @RequestBody senhaRequest request) {
+        salvarSenhaService.salvar(request);
     }
 }

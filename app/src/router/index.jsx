@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { HomeScreen, UserLoginScreen } from '../ui/index';
+import { ChangePassScreen, HomeScreen, UserLoginScreen } from '../ui/index';
 
 export const router = createBrowserRouter([
   {
@@ -9,5 +9,9 @@ export const router = createBrowserRouter([
   {
     path: '/home',
     element: <HomeScreen />,
+  },
+  {
+    path: '/usuarios/alterar-senha/:id/:token',
+    element: <ChangePassScreen />,
   },
 ]);
